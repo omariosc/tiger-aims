@@ -1,0 +1,45 @@
+# TIGER SQ-AI 2026 — Apptainer build of the inference container.
+# Mirrors docker/Dockerfile (podman rootless unavailable: no subuid range; apptainer
+# root-mapped-namespace build works with --ignore-fakeroot-command on this cluster).
+# Build context = the staging dir from stage_build_context.sh.
+Bootstrap: docker
+From: pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime
+
+%files
+    inference.py /opt/tiger/inference.py
+    station_boundary_map.py /opt/tiger/station_boundary_map.py
+    fp_suppress.py /opt/tiger/fp_suppress.py
+    covis_matrix.json /opt/tiger/covis_matrix.json
+    t2_ft_ens_fpsuppress_fullres.json /opt/tiger/t2_ft_ens_fpsuppress_fullres.json
+    t1_topk_fpsuppress_fullres.json /opt/tiger/t1_topk_fpsuppress_fullres.json
+    challenge_repo /opt/tiger/challenge_repo
+    nnUNetTrainerTverskyBoundary.py /opt/tiger/nnUNetTrainerTverskyBoundary.py
+    cbdice_tiger.py /opt/tiger/cbdice_tiger.py
+    nnUNet_results /opt/tiger/nnUNet_results
+    t3_head /opt/tiger/t3_head
+
+%post
+    pip install --no-cache-dir \
+        nnunetv2==2.8.0 "numpy<3" pillow pandas scipy scikit-image \
+        scikit-learn batchgenerators dynamic-network-architectures acvl-utils
+    # drop the custom Focal-Tversky / seeded / TopK / cbDice trainers into the nnU-Net pkg.
+    # cbdice_tiger.py is the dependency of the cbDice trainers; the submission trainers
+    # (TopK / FocalTversky) do NOT need it, but nnU-Net's trainer-discovery imports the
+    # whole TverskyBoundary module, so cbdice_tiger MUST be present (or the import guarded)
+    # or ALL trainer discovery crashes (job 6209008 FAILED on the missing module).
+    cp /opt/tiger/nnUNetTrainerTverskyBoundary.py \
+       /opt/conda/lib/python3.11/site-packages/nnunetv2/training/nnUNetTrainer/variants/loss/nnUNetTrainerTverskyBoundary.py
+    cp /opt/tiger/cbdice_tiger.py \
+       /opt/conda/lib/python3.11/site-packages/nnunetv2/training/loss/cbdice_tiger.py
+
+%environment
+    export TIGER_RESULTS=/opt/tiger/nnUNet_results
+    export TIGER_T3_CKPT=/opt/tiger/t3_head/best.pt
+    export TIGER_REPO=/opt/tiger/challenge_repo
+    export nnUNet_raw=/tmp/nnraw
+    export nnUNet_preprocessed=/tmp/nnprep
+    export nnUNet_results=/opt/tiger/nnUNet_results
+    export MKL_THREADING_LAYER=GNU
+
+%runscript
+    exec python /opt/tiger/inference.py "$@"

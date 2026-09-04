@@ -1,0 +1,89 @@
+{
+  "task": "t1",
+  "downscale": 0,
+  "min_blob_arg": 2,
+  "ref_px": 2073600.0,
+  "ref_hw": [
+    1080,
+    1920
+  ],
+  "min_blob": {
+    "3": 2,
+    "5": 2,
+    "6": 2,
+    "11": 2,
+    "14": 2
+  },
+  "min_total": {
+    "3": 23620,
+    "5": 105,
+    "6": 0,
+    "11": 0,
+    "14": 54
+  },
+  "min_blob_frac": {
+    "3": 9.645061728395062e-07,
+    "5": 9.645061728395062e-07,
+    "6": 9.645061728395062e-07,
+    "11": 9.645061728395062e-07,
+    "14": 9.645061728395062e-07
+  },
+  "min_total_frac": {
+    "3": 0.011390817901234567,
+    "5": 5.063657407407407e-05,
+    "6": 0.0,
+    "11": 0.0,
+    "14": 2.604166666666667e-05
+  },
+  "w3_dice_before": 0.2909368918097349,
+  "w3_dice_after": 0.37664713957622087,
+  "w3_dice_delta": 0.08571024776648595,
+  "w3_nhd_before": NaN,
+  "w3_nhd_after": NaN,
+  "fp_classes_before": 5,
+  "fp_classes_after": 5,
+  "present_miss_before": 1,
+  "present_miss_after": 1,
+  "per_class": {
+    "Pleura": {
+      "id": 3,
+      "T_total": 23620,
+      "dice_before": 0.5563494609258114,
+      "dice_after": 0.5920536290103391,
+      "fp0_before": 4,
+      "fp0_after": 3
+    },
+    "Vessels": {
+      "id": 5,
+      "T_total": 105,
+      "dice_before": 0.23138816149382557,
+      "dice_after": 0.40995274547383703,
+      "fp0_before": 17,
+      "fp0_after": 12
+    },
+    "Nerves": {
+      "id": 6,
+      "T_total": 0,
+      "dice_before": 0.20681523466988996,
+      "dice_after": 0.2425295212435254,
+      "fp0_before": 10,
+      "fp0_after": 9
+    },
+    "Lymphatic_Tissue": {
+      "id": 11,
+      "T_total": 0,
+      "dice_before": 0.13621991152902083,
+      "dice_after": 0.13622429090681137,
+      "fp0_before": 4,
+      "fp0_after": 4
+    },
+    "Pulmonary_Artery": {
+      "id": 14,
+      "T_total": 54,
+      "dice_before": 0.32391169043012674,
+      "dice_after": 0.5024755112465916,
+      "fp0_before": 14,
+      "fp0_after": 9
+    }
+  }
+}

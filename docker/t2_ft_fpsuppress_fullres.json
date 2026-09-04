@@ -1,0 +1,149 @@
+{
+  "task": "t2",
+  "downscale": 0,
+  "min_blob_arg": 2,
+  "ref_px": 2073600.0,
+  "ref_hw": [
+    1080,
+    1920
+  ],
+  "min_blob": {
+    "8": 2,
+    "9": 2,
+    "13": 2,
+    "14": 2,
+    "19": 2,
+    "21": 2,
+    "22": 2,
+    "23": 2,
+    "27": 2,
+    "28": 2
+  },
+  "min_total": {
+    "8": 7256,
+    "9": 0,
+    "13": 2387,
+    "14": 68,
+    "19": 0,
+    "21": 1182,
+    "22": 0,
+    "23": 0,
+    "27": 330,
+    "28": 157
+  },
+  "min_blob_frac": {
+    "8": 9.645061728395062e-07,
+    "9": 9.645061728395062e-07,
+    "13": 9.645061728395062e-07,
+    "14": 9.645061728395062e-07,
+    "19": 9.645061728395062e-07,
+    "21": 9.645061728395062e-07,
+    "22": 9.645061728395062e-07,
+    "23": 9.645061728395062e-07,
+    "27": 9.645061728395062e-07,
+    "28": 9.645061728395062e-07
+  },
+  "min_total_frac": {
+    "8": 0.003499228395061728,
+    "9": 0.0,
+    "13": 0.0011511381172839507,
+    "14": 3.279320987654321e-05,
+    "19": 0.0,
+    "21": 0.0005700231481481482,
+    "22": 0.0,
+    "23": 0.0,
+    "27": 0.00015914351851851853,
+    "28": 7.571373456790123e-05
+  },
+  "w3_dice_before": 0.42626392502694455,
+  "w3_dice_after": 0.5834044332216672,
+  "w3_dice_delta": 0.1571405081947227,
+  "w3_nhd_before": NaN,
+  "w3_nhd_after": NaN,
+  "fp_classes_before": 9,
+  "fp_classes_after": 7,
+  "present_miss_before": 2,
+  "present_miss_after": 2,
+  "per_class": {
+    "Right_Inf_Pulmonary_Lig": {
+      "id": 8,
+      "T_total": 7256,
+      "dice_before": 0.34325979330686557,
+      "dice_after": 0.7361111869383711,
+      "fp0_before": 15,
+      "fp0_after": 4
+    },
+    "Left_Inf_Pulmonary_Lig": {
+      "id": 9,
+      "T_total": 0,
+      "dice_before": 0.23178106938106766,
+      "dice_after": 0.2317818011517076,
+      "fp0_before": 13,
+      "fp0_after": 13
+    },
+    "Right_Subclavian_Artery": {
+      "id": 13,
+      "T_total": 2387,
+      "dice_before": 0.6257888973765601,
+      "dice_after": 0.8757855295630665,
+      "fp0_before": 7,
+      "fp0_after": 0
+    },
+    "Right_Vagal_Nerve": {
+      "id": 14,
+      "T_total": 68,
+      "dice_before": 0.24256082876718585,
+      "dice_after": 0.42111273795033366,
+      "fp0_before": 14,
+      "fp0_after": 9
+    },
+    "Lymph_Node": {
+      "id": 19,
+      "T_total": 0,
+      "dice_before": 0.13581903788716473,
+      "dice_after": 0.13582393120908048,
+      "fp0_before": 4,
+      "fp0_after": 4
+    },
+    "Left_Subclavian_Artery": {
+      "id": 21,
+      "T_total": 1182,
+      "dice_before": 0.7142857142857143,
+      "dice_after": 1.0,
+      "fp0_before": 8,
+      "fp0_after": 0
+    },
+    "Right_Bronchial_Artery": {
+      "id": 22,
+      "T_total": 0,
+      "dice_before": 1.0,
+      "dice_after": 1.0,
+      "fp0_before": 0,
+      "fp0_after": 0
+    },
+    "Pulmonary_Artery": {
+      "id": 23,
+      "T_total": 0,
+      "dice_before": 0.1810581530337188,
+      "dice_after": 0.18105752522298843,
+      "fp0_before": 18,
+      "fp0_after": 18
+    },
+    "Right_Recurrent_Laryngeal_Nerve": {
+      "id": 27,
+      "T_total": 330,
+      "dice_before": 0.57263426656501,
+      "dice_after": 0.7869201305149666,
+      "fp0_before": 7,
+      "fp0_after": 1
+    },
+    "Left_Recurrent_Laryngeal_Nerve": {
+      "id": 28,
+      "T_total": 157,
+      "dice_before": 0.21545148966615818,
+      "dice_after": 0.4654514896661582,
+      "fp0_before": 17,
+      "fp0_after": 10
+    }
+  }
+}
